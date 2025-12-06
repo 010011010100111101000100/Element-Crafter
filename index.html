@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Element Crafter — Neon Forge (Upgraded)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="bgCanvas" class="bg-canvas"></canvas>
+
+<div id="app" class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">NF</div>
+      <div>
+        <div class="title">Element Crafter — Neon Forge</div>
+        <div class="subtitle">Dark · Futuristic · Neon — Discover, craft, & trade</div>
+      </div>
+    </div>
+    <div class="top-controls">
+      <input id="globalSearch" placeholder="Search inventory or gallery..." />
+      <div class="badge">Coins: <span id="coinCount">0</span></div>
+      <button id="openGalleryBtn" class="ghost">Gallery</button>
+      <button id="resetBtn" class="ghost">Reset</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <aside class="panel inventory">
+      <h3>Inventory</h3>
+      <div class="meta-row">
+        <div class="sub">Discovered: <span id="discoveredCount">0</span></div>
+        <div class="sub">Items: <span id="inventoryCount">0</span></div>
+      </div>
+      <div class="inv-search">
+        <input id="invFilter" placeholder="Filter inventory..." />
+      </div>
+      <div class="grid" id="inventoryGrid"></div>
+    </aside>
+
+    <section class="workspace panel craft-area">
+      <div>
+        <h3>Crafting Area</h3>
+        <div class="selected-row" id="selectedRow"></div>
+        <div class="sub">Drag items into the two slots below or click to select. Duplicates allowed.</div>
+      </div>
+
+      <div class="craft-slots">
+        <div class="slot" id="slotA" data-slot="A">Drop A</div>
+        <div class="slot" id="slotB" data-slot="B">Drop B</div>
+      </div>
+
+      <div class="actions">
+        <button id="combineBtn" class="primary">Combine</button>
+        <button id="clearSelected" class="muted-btn">Clear</button>
+        <div style="flex:1"></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+          <div class="sub">Progress</div>
+          <div class="progress-outer"><div id="progressFill" class="progress-fill"></div></div>
+        </div>
+      </div>
+
+      <div id="resultPanel" class="result-box" style="display:none"></div>
+    </section>
+
+    <aside class="right-col">
+      <div class="panel gallery">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div><h3 style="margin:0">Discovery Gallery</h3><div class="sub">Total: <span id="totalElements">0</span></div></div>
+          <div class="sub">Seed: <span id="seedDisplay">0</span></div>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+
+      <div class="shop panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div><h3 style="margin:0">Shop</h3><div class="sub">Buy locked elements</div></div>
+          <div class="sub">Your coins: <strong id="shopCoins">0</strong></div>
+        </div>
+        <div class="shop-grid" id="shopGrid"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="sub">Single-file upgrade — drop into GitHub repo root as index.html + assets</div>
+    <div class="sub">Neon Forge • Enjoy</div>
+  </footer>
+</div>
+
+<div id="toast" class="toast" style="display:none"><div class="t-emoji">✨</div><div id="toastText"></div></div>
+
+<script src="elements.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
